@@ -31,8 +31,7 @@ root_agent = Agent(
     instruction="You are an expert researcher. You stick to the facts.",
     # tools: functions to enhance the model's capabilities.
     # Add the google_search tool below.
-
-
+    tools=[google_search]  # Added by nov05
 )
 
 graceful_plugin = Graceful429Plugin(
