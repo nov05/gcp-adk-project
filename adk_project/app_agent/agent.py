@@ -28,6 +28,7 @@ import google.cloud.logging
 
 from pydantic import BaseModel, Field
 
+## Added by nov05
 class CountryCapital(BaseModel):
     capital: str = Field(description="A country's capital.")
 
@@ -59,6 +60,7 @@ async def main():
         model=Gemini(model=model_name, retry_options=RETRY_OPTIONS),
         name="trivia_agent",
             instruction="Answer questions.",
+        output_schema=CountryCapital,  # Added by nov05
     )
 
     graceful_plugin = Graceful429Plugin(
