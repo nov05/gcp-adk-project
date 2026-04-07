@@ -26,6 +26,11 @@ from adk_utils.plugins import Graceful429Plugin
 import logging
 import google.cloud.logging
 
+from pydantic import BaseModel, Field
+
+class CountryCapital(BaseModel):
+    capital: str = Field(description="A country's capital.")
+
 # 1. Load environment variables from the agent directory's .env file
 load_dotenv()
 model_name = os.getenv("MODEL")
